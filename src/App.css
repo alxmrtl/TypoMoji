@@ -1,0 +1,279 @@
+/* Main App Styles */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+}
+
+.app-header {
+  background-color: var(--color-box-bg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-md) 0;
+  position: relative;
+}
+
+.app-header .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.app-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0;
+  text-align: center;
+}
+
+.app-parent-button {
+  position: absolute;
+  top: 50%;
+  right: var(--space-md);
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: var(--space-sm);
+  font-size: var(--font-size-lg);
+  opacity: 0.3;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: opacity 0.2s ease;
+  min-height: var(--touch-target-min);
+  min-width: var(--touch-target-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-parent-button:hover {
+  opacity: 0.6;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.app-main {
+  flex: 1;
+  padding: var(--space-lg) 0;
+}
+
+.app-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: var(--space-lg);
+}
+
+.app-loading__spinner {
+  font-size: var(--font-size-4xl);
+  animation: spin 2s linear infinite;
+}
+
+.app-error {
+  background-color: var(--color-error);
+  color: white;
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+}
+
+.app-error p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.app-error-dismiss {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  cursor: pointer;
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  min-height: var(--touch-target-min);
+  min-width: var(--touch-target-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-error-dismiss:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.app-waiting {
+  text-align: center;
+  padding: var(--space-2xl);
+  color: var(--color-text-muted);
+}
+
+.app-waiting p {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.app-start-button {
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  padding: var(--space-lg) var(--space-2xl);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-md);
+  min-height: var(--touch-target-large);
+}
+
+.app-start-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.app-actions {
+  text-align: center;
+  margin-top: var(--space-xl);
+}
+
+.app-new-round-button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  min-height: var(--touch-target-comfortable);
+}
+
+.app-new-round-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.app-list-info {
+  text-align: center;
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  background-color: rgba(43, 108, 246, 0.1);
+  border-radius: var(--radius-lg);
+  color: var(--color-primary);
+}
+
+.app-list-info p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+}
+
+.app-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-md);
+}
+
+.app-modal {
+  background-color: var(--color-box-bg);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.app-modal h2 {
+  margin-top: 0;
+  color: var(--color-primary);
+}
+
+.app-modal button {
+  margin-top: var(--space-lg);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .app-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .app-parent-button {
+    right: var(--space-lg);
+  }
+
+  .app-main {
+    padding: var(--space-2xl) 0;
+  }
+
+  .app-loading__spinner {
+    font-size: 5rem;
+  }
+
+  .app-modal {
+    padding: var(--space-2xl) var(--space-2xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-title {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+/* Animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .app-parent-button {
+    opacity: 0.8;
+    border: 2px solid currentColor;
+  }
+
+  .app-error {
+    border: 3px solid var(--color-text);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .app-loading__spinner {
+    animation: none;
+  }
+
+  .app-start-button,
+  .app-new-round-button {
+    transition: none;
+  }
+
+  .app-start-button:hover,
+  .app-new-round-button:hover {
+    transform: none;
+  }
+}

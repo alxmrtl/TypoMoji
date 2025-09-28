@@ -1,0 +1,19 @@
+{
+  "id": "colors-basic",
+  "title": "Colors - Basic",
+  "type": "WORDS",
+  "items": [
+    { "id": "red", "key": "RED", "emoji": "🔴" },
+    { "id": "blue", "key": "BLUE", "emoji": "🔵" },
+    { "id": "green", "key": "GREEN", "emoji": "🟢" },
+    { "id": "yellow", "key": "YELLOW", "emoji": "🟡" },
+    { "id": "orange", "key": "ORANGE", "emoji": "🟠" },
+    { "id": "purple", "key": "PURPLE", "emoji": "🟣" },
+    { "id": "pink", "key": "PINK", "emoji": "🩷" },
+    { "id": "brown", "key": "BROWN", "emoji": "🤎" },
+    { "id": "black", "key": "BLACK", "emoji": "⚫" },
+    { "id": "white", "key": "WHITE", "emoji": "⚪" }
+  ],
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "updatedAt": "2024-01-01T00:00:00.000Z"
+}
