@@ -45,12 +45,14 @@
 
 .box__input {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: transparent;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 40%;
+  border: 2px solid var(--color-box-border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
   text-align: center;
   font-size: var(--box-text-size);
   font-weight: 700;
@@ -60,6 +62,8 @@
   outline: none;
   z-index: 2;
   text-transform: uppercase;
+  padding: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .box--correct .box__input {
@@ -67,7 +71,9 @@
 }
 
 .box__input:focus {
-  background-color: rgba(43, 108, 246, 0.05);
+  background-color: rgba(43, 108, 246, 0.15);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(43, 108, 246, 0.2);
 }
 
 .box--correct .box__input:focus {
@@ -80,27 +86,22 @@
 
 .box__hint {
   position: absolute;
-  top: 50%;
+  bottom: 12px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   font-size: var(--box-hint-size);
-  font-weight: 700;
+  font-weight: 600;
   font-family: var(--font-family);
-  color: var(--color-text-muted);
-  opacity: 0.4;
+  color: var(--color-primary);
+  opacity: 0.7;
   pointer-events: none;
   z-index: 1;
   text-transform: uppercase;
-  transition: opacity 0.2s ease;
-}
-
-.box__input:focus + .box__hint,
-.box__input:not(:placeholder-shown) + .box__hint {
-  opacity: 0.2;
-}
-
-.box--correct .box__hint {
-  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(43, 108, 246, 0.2);
 }
 
 .box__check {
@@ -274,13 +275,13 @@
   }
 }
 
-/* Emoji display for WORDS mode */
+/* Emoji display - repositioned to avoid overlapping */
 .box__emoji {
   position: absolute;
-  top: 15%;
+  top: 6px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 4rem;
+  font-size: 2.8rem;
   z-index: 1;
   pointer-events: none;
   opacity: 0.9;
@@ -288,13 +289,10 @@
 }
 
 .box__emoji--numbers {
-  top: 8%;
-  font-size: 3.5rem;
+  top: 4px;
+  font-size: 2.2rem;
 }
 
-.box--words .box__input {
-  padding-top: 40%;
-}
 
 .box--correct .box__emoji {
   opacity: 1;
@@ -308,6 +306,8 @@
   justify-content: center;
   height: 100%;
   padding: var(--space-xs);
+  padding-top: 50px; /* Reduced space for smaller emoji */
+  padding-bottom: 20px; /* Reduced bottom padding */
 }
 
 .box__equation-display {
@@ -350,24 +350,25 @@
 }
 
 .box__input--inline {
-  border: none;
-  border-bottom: 2px solid var(--color-primary);
-  background: transparent;
+  border: 2px solid var(--color-box-border);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.95);
   text-align: center;
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-xl);
   font-weight: 700;
   font-family: var(--font-family);
   color: var(--color-text);
   width: 50px;
   min-width: 40px;
-  padding: 4px 6px;
+  padding: 6px 8px;
   outline: none;
-  border-radius: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .box__input--inline:focus {
-  background-color: rgba(43, 108, 246, 0.1);
-  border-bottom-color: var(--color-primary);
+  background-color: rgba(43, 108, 246, 0.15);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(43, 108, 246, 0.2);
 }
 
 .box--correct .box__input--inline {
@@ -394,11 +395,11 @@
 /* Responsive adjustments for new elements */
 @media (min-width: 768px) {
   .box__emoji {
-    font-size: 5rem;
+    font-size: 3.5rem;
   }
 
   .box__emoji--numbers {
-    font-size: 4.5rem;
+    font-size: 3rem;
   }
 
   .box__equation-display {
@@ -412,7 +413,7 @@
   }
 
   .box__input--inline {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
     width: 60px;
     min-width: 50px;
   }
@@ -420,11 +421,11 @@
 
 @media (min-width: 1024px) {
   .box__emoji {
-    font-size: 6rem;
+    font-size: 4rem;
   }
 
   .box__emoji--numbers {
-    font-size: 5.5rem;
+    font-size: 3.5rem;
   }
 
   .box__equation-display {
@@ -438,7 +439,7 @@
   }
 
   .box__input--inline {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-3xl);
     width: 70px;
     min-width: 60px;
   }
