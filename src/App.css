@@ -177,6 +177,26 @@
   font-size: var(--font-size-sm);
 }
 
+.app-change-category-button {
+  margin-top: var(--space-sm);
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-family);
+}
+
+.app-change-category-button:hover {
+  background-color: color-mix(in srgb, var(--color-primary) 90%, black 10%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(43, 108, 246, 0.3);
+}
+
 .app-modal-overlay {
   position: fixed;
   top: 0;

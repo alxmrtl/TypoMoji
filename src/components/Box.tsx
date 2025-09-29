@@ -211,7 +211,7 @@ export const Box: React.FC<BoxProps> = ({
         <input
           ref={inputRef}
           type="text"
-          value={entered}
+          value={correct ? target : entered}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           onBlur={handleValidation}
@@ -249,12 +249,15 @@ export const Box: React.FC<BoxProps> = ({
 
         {renderContent()}
 
-        {/* Success sparkles */}
+        {/* Success celebration */}
         {showSuccess && (
-          <div className="box__sparkles" aria-hidden="true">
+          <div className="box__celebration" aria-hidden="true">
             <div className="box__sparkle box__sparkle--1">✨</div>
-            <div className="box__sparkle box__sparkle--2">✨</div>
-            <div className="box__sparkle box__sparkle--3">✨</div>
+            <div className="box__sparkle box__sparkle--2">⭐</div>
+            <div className="box__sparkle box__sparkle--3">🎉</div>
+            <div className="box__sparkle box__sparkle--4">✨</div>
+            <div className="box__float box__float--1">🎊</div>
+            <div className="box__float box__float--2">🌟</div>
           </div>
         )}
       </div>

@@ -51,17 +51,15 @@ function App() {
     initialize();
   }, [initializeStore]);
 
-  // Auto-select default list when mode changes
+  // Auto-clear selected list when mode changes to show category selector
   useEffect(() => {
     if (!initialized || !lists.length) return;
 
-    if (!selectedListId || !lists.find(l => l.id === selectedListId)) {
-      const defaultList = getDefaultListForMode(config.mode);
-      if (defaultList) {
-        const existingList = lists.find(l => l.id === defaultList.id);
-        if (existingList) {
-          selectList(existingList.id);
-        }
+    // Clear selection when mode changes to let user choose category
+    if (selectedListId && lists.find(l => l.id === selectedListId)) {
+      const currentList = lists.find(l => l.id === selectedListId);
+      if (currentList && currentList.type !== config.mode) {
+        selectList(null as any); // Clear selection to show category selector
       }
     }
   }, [config.mode, lists, selectedListId, selectList, initialized]);
@@ -236,6 +234,12 @@ function App() {
               <p>
                 En cours : <strong>{selectedList.title}</strong> ({selectedList.items.length} éléments)
               </p>
+              <button
+                className="app-change-category-button"
+                onClick={() => selectList(null as any)}
+              >
+                🔄 Changer de catégorie
+              </button>
             </div>
           )}
         </div>
