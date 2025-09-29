@@ -142,7 +142,7 @@ function App() {
     return (
       <div className="app-loading">
         <div className="app-loading__spinner">🎯</div>
-        <p>Loading Fill & Celebrate...</p>
+        <p>Chargement de Remplis & Célèbre...</p>
       </div>
     );
   }
@@ -153,17 +153,16 @@ function App() {
       <header className="app-header">
         <div className="container">
           <h1 className="app-title">
-            {config.mode === 'WORDS' && '📝 WORDS'}
-            {config.mode === 'NUMBERS' && '🔢 NUMBERS'}
-            {config.mode === 'LETTERS' && '🔤 LETTERS'}
+            {config.mode === 'WORDS' && '📝 MOTS'}
+            {config.mode === 'NUMBERS' && '🔢 NOMBRES'}
           </h1>
 
           {/* Subtle parent button */}
           <button
             className="app-parent-button"
             onClick={() => setShowParentZone(true)}
-            aria-label="Parent settings"
-            title="Parent settings"
+            aria-label="Paramètres parentaux"
+            title="Paramètres parentaux"
           >
             ⚙️
           </button>
@@ -201,13 +200,13 @@ function App() {
             />
           ) : (
             <div className="app-waiting">
-              <p>🎯 Get ready to type!</p>
+              <p>🎯 Prépare-toi à taper !</p>
               {selectedList && (
                 <button
                   className="app-start-button"
                   onClick={handleNewRound}
                 >
-                  Start Round
+                  Commencer la Partie
                 </button>
               )}
             </div>
@@ -220,7 +219,7 @@ function App() {
                 className="app-new-round-button"
                 onClick={handleNewRound}
               >
-                🎲 New Round
+                🎲 Nouvelle Partie
               </button>
             </div>
           )}
@@ -229,7 +228,7 @@ function App() {
           {selectedList && (
             <div className="app-list-info">
               <p>
-                Playing: <strong>{selectedList.title}</strong> ({selectedList.items.length} items)
+                En cours : <strong>{selectedList.title}</strong> ({selectedList.items.length} éléments)
               </p>
             </div>
           )}

@@ -1,0 +1,29 @@
+{
+  "id": "equations-french",
+  "title": "Équations Françaises",
+  "type": "NUMBERS",
+  "items": [
+    { "id": "eq1", "key": "4", "emoji": "➕", "equation": { "left": "1", "operator": "+", "right": "3", "result": "4", "missing": "result" } },
+    { "id": "eq2", "key": "3", "emoji": "➕", "equation": { "left": "2", "operator": "+", "right": "1", "result": "3", "missing": "result" } },
+    { "id": "eq3", "key": "5", "emoji": "➕", "equation": { "left": "2", "operator": "+", "right": "3", "result": "5", "missing": "result" } },
+    { "id": "eq4", "key": "6", "emoji": "➕", "equation": { "left": "4", "operator": "+", "right": "2", "result": "6", "missing": "result" } },
+    { "id": "eq5", "key": "2", "emoji": "➕", "equation": { "left": "2", "operator": "+", "right": "3", "result": "5", "missing": "left" } },
+    { "id": "eq6", "key": "3", "emoji": "➕", "equation": { "left": "1", "operator": "+", "right": "3", "result": "4", "missing": "right" } },
+    { "id": "eq7", "key": "7", "emoji": "➕", "equation": { "left": "3", "operator": "+", "right": "4", "result": "7", "missing": "result" } },
+    { "id": "eq8", "key": "8", "emoji": "➕", "equation": { "left": "5", "operator": "+", "right": "3", "result": "8", "missing": "result" } },
+    { "id": "eq9", "key": "4", "emoji": "➕", "equation": { "left": "4", "operator": "+", "right": "2", "result": "6", "missing": "left" } },
+    { "id": "eq10", "key": "1", "emoji": "➕", "equation": { "left": "3", "operator": "+", "right": "1", "result": "4", "missing": "right" } },
+    { "id": "eq11", "key": "9", "emoji": "➕", "equation": { "left": "6", "operator": "+", "right": "3", "result": "9", "missing": "result" } },
+    { "id": "eq12", "key": "10", "emoji": "➕", "equation": { "left": "7", "operator": "+", "right": "3", "result": "10", "missing": "result" } },
+    { "id": "eq13", "key": "5", "emoji": "➕", "equation": { "left": "5", "operator": "+", "right": "2", "result": "7", "missing": "left" } },
+    { "id": "eq14", "key": "2", "emoji": "➕", "equation": { "left": "6", "operator": "+", "right": "2", "result": "8", "missing": "right" } },
+    { "id": "eq15", "key": "1", "emoji": "➖", "equation": { "left": "3", "operator": "-", "right": "2", "result": "1", "missing": "result" } },
+    { "id": "eq16", "key": "2", "emoji": "➖", "equation": { "left": "5", "operator": "-", "right": "3", "result": "2", "missing": "result" } },
+    { "id": "eq17", "key": "4", "emoji": "➖", "equation": { "left": "7", "operator": "-", "right": "3", "result": "4", "missing": "result" } },
+    { "id": "eq18", "key": "3", "emoji": "➖", "equation": { "left": "8", "operator": "-", "right": "5", "result": "3", "missing": "result" } },
+    { "id": "eq19", "key": "6", "emoji": "➖", "equation": { "left": "6", "operator": "-", "right": "2", "result": "4", "missing": "left" } },
+    { "id": "eq20", "key": "3", "emoji": "➖", "equation": { "left": "9", "operator": "-", "right": "3", "result": "6", "missing": "right" } }
+  ],
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "updatedAt": "2024-01-01T00:00:00.000Z"
+}

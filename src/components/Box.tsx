@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import type { GameMode } from '../types';
+import type { GameMode, Equation } from '../types';
 import './Box.css';
 
 interface BoxProps {
@@ -9,6 +9,8 @@ interface BoxProps {
   locked: boolean;
   correct: boolean;
   mode: GameMode;
+  emoji?: string;
+  equation?: Equation;
   onValidate: (boxId: string, entered: string) => void;
   onUpdateBox: (boxId: string, entered: string) => void;
   autoFocus?: boolean;
@@ -21,6 +23,8 @@ export const Box: React.FC<BoxProps> = ({
   locked,
   correct,
   mode,
+  emoji,
+  equation,
   onValidate,
   onUpdateBox,
   autoFocus = false
@@ -44,8 +48,6 @@ export const Box: React.FC<BoxProps> = ({
 
   const getInputPattern = (): string => {
     switch (mode) {
-      case 'LETTERS':
-        return '[A-Za-z]';
       case 'NUMBERS':
         return '[0-9]*';
       case 'WORDS':
@@ -57,10 +59,8 @@ export const Box: React.FC<BoxProps> = ({
 
   const getMaxLength = (): number => {
     switch (mode) {
-      case 'LETTERS':
-        return 1;
       case 'NUMBERS':
-        return target.length;
+        return target.length > 0 ? target.length : 3;
       case 'WORDS':
         return target.length;
       default:
@@ -71,18 +71,15 @@ export const Box: React.FC<BoxProps> = ({
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (locked) return;
 
-    let value = e.target.value.toUpperCase();
+    let value = e.target.value;
 
     // Filter based on mode
     switch (mode) {
-      case 'LETTERS':
-        value = value.replace(/[^A-Z]/g, '').slice(0, 1);
-        break;
       case 'NUMBERS':
         value = value.replace(/[^0-9]/g, '');
         break;
       case 'WORDS':
-        value = value.replace(/[^A-Z]/g, '');
+        value = value.toUpperCase().replace(/[^A-Z]/g, '');
         break;
     }
 
@@ -92,7 +89,7 @@ export const Box: React.FC<BoxProps> = ({
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (locked) return;
 
-    if (e.key === 'Enter' || (mode === 'LETTERS' && entered.length === 1)) {
+    if (e.key === 'Enter') {
       handleValidation();
     }
   };
@@ -120,22 +117,84 @@ export const Box: React.FC<BoxProps> = ({
     }
   };
 
-  return (
-    <div
-      className={`box ${locked ? 'box--locked' : ''} ${
-        correct ? 'box--correct' : ''
-      } ${isShaking ? 'box--shake' : ''} ${
-        showSuccess ? 'box--success' : ''
-      }`}
-      onClick={handleBoxClick}
-    >
-      <div className="box__container">
-        {locked && correct && (
-          <div className="box__check" aria-hidden="true">
-            ✓
+  const renderContent = () => {
+    if (mode === 'NUMBERS' && equation) {
+      // Render equation format: "1 + _ = 5"
+      return (
+        <div className="box__equation">
+          <div className="box__equation-display">
+            <span className="box__equation-part">
+              {equation.missing === 'left' ? (
+                <input
+                  ref={equation.missing === 'left' ? inputRef : undefined}
+                  type="text"
+                  value={equation.missing === 'left' ? entered : equation.left}
+                  onChange={equation.missing === 'left' ? handleInputChange : undefined}
+                  onKeyDown={equation.missing === 'left' ? handleKeyDown : undefined}
+                  onBlur={equation.missing === 'left' ? handleValidation : undefined}
+                  placeholder="?"
+                  disabled={locked}
+                  maxLength={getMaxLength()}
+                  className="box__input--inline"
+                  readOnly={equation.missing !== 'left'}
+                />
+              ) : (
+                equation.left
+              )}
+            </span>
+            <span className="box__equation-operator">{equation.operator}</span>
+            <span className="box__equation-part">
+              {equation.missing === 'right' ? (
+                <input
+                  ref={equation.missing === 'right' ? inputRef : undefined}
+                  type="text"
+                  value={equation.missing === 'right' ? entered : equation.right}
+                  onChange={equation.missing === 'right' ? handleInputChange : undefined}
+                  onKeyDown={equation.missing === 'right' ? handleKeyDown : undefined}
+                  onBlur={equation.missing === 'right' ? handleValidation : undefined}
+                  placeholder="?"
+                  disabled={locked}
+                  maxLength={getMaxLength()}
+                  className="box__input--inline"
+                  readOnly={equation.missing !== 'right'}
+                />
+              ) : (
+                equation.right
+              )}
+            </span>
+            <span className="box__equation-equals">=</span>
+            <span className="box__equation-part">
+              {equation.missing === 'result' ? (
+                <input
+                  ref={equation.missing === 'result' ? inputRef : undefined}
+                  type="text"
+                  value={equation.missing === 'result' ? entered : equation.result}
+                  onChange={equation.missing === 'result' ? handleInputChange : undefined}
+                  onKeyDown={equation.missing === 'result' ? handleKeyDown : undefined}
+                  onBlur={equation.missing === 'result' ? handleValidation : undefined}
+                  placeholder="?"
+                  disabled={locked}
+                  maxLength={getMaxLength()}
+                  className="box__input--inline"
+                  readOnly={equation.missing !== 'result'}
+                />
+              ) : (
+                equation.result
+              )}
+            </span>
+          </div>
+        </div>
+      );
+    }
+
+    // WORDS mode with emoji
+    return (
+      <>
+        {emoji && (
+          <div className="box__emoji" aria-hidden="true">
+            {emoji}
           </div>
         )}
-
         <input
           ref={inputRef}
           type="text"
@@ -152,10 +211,9 @@ export const Box: React.FC<BoxProps> = ({
           autoCapitalize="characters"
           spellCheck={false}
           className="box__input"
-          aria-label={`Type ${target}`}
+          aria-label={`Tape ${target}`}
           aria-describedby={`box-hint-${boxId}`}
         />
-
         <div
           id={`box-hint-${boxId}`}
           className="box__hint"
@@ -163,6 +221,27 @@ export const Box: React.FC<BoxProps> = ({
         >
           {target}
         </div>
+      </>
+    );
+  };
+
+  return (
+    <div
+      className={`box ${locked ? 'box--locked' : ''} ${
+        correct ? 'box--correct' : ''
+      } ${isShaking ? 'box--shake' : ''} ${
+        showSuccess ? 'box--success' : ''
+      } box--${mode.toLowerCase()}`}
+      onClick={handleBoxClick}
+    >
+      <div className="box__container">
+        {locked && correct && (
+          <div className="box__check" aria-hidden="true">
+            ✓
+          </div>
+        )}
+
+        {renderContent()}
 
         {/* Success sparkles */}
         {showSuccess && (

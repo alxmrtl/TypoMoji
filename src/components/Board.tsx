@@ -86,6 +86,8 @@ export const Board: React.FC<BoardProps> = ({
               locked={boxState.locked}
               correct={boxState.correct}
               mode={mode}
+              emoji={boxState.emoji}
+              equation={boxState.equation}
               onValidate={handleValidate}
               onUpdateBox={onUpdateBox}
               autoFocus={boxId === firstUnlockedBoxId && index === 0}
@@ -97,7 +99,7 @@ export const Board: React.FC<BoardProps> = ({
       {/* Completion status */}
       {completed && (
         <div className="board__completion" role="status" aria-live="polite">
-          <span className="board__completion-text">🎉 Round Complete! 🎉</span>
+          <span className="board__completion-text">🎉 Partie Terminée ! 🎉</span>
         </div>
       )}
     </div>

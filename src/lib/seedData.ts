@@ -2,14 +2,24 @@ import type { WordList } from '../types';
 import animalsData from '../assets/lists/animals.json';
 import colorsData from '../assets/lists/colors.json';
 import numbersData from '../assets/lists/numbers.json';
-import lettersData from '../assets/lists/letters.json';
+import animalsFrenchData from '../assets/lists/animals-french.json';
+import foodFrenchData from '../assets/lists/food-french.json';
+import colorsFrenchData from '../assets/lists/colors-french.json';
+import bodyFrenchData from '../assets/lists/body-french.json';
+import houseFrenchData from '../assets/lists/house-french.json';
+import equationsFrenchData from '../assets/lists/equations-french.json';
 
 // Built-in seed lists
 export const builtInLists: WordList[] = [
   animalsData as WordList,
   colorsData as WordList,
   numbersData as WordList,
-  lettersData as WordList
+  animalsFrenchData as WordList,
+  foodFrenchData as WordList,
+  colorsFrenchData as WordList,
+  bodyFrenchData as WordList,
+  houseFrenchData as WordList,
+  equationsFrenchData as WordList
 ];
 
 // Initialize built-in lists in storage if they don't exist
@@ -38,11 +48,9 @@ export const initializeSeedData = async () => {
 export const getDefaultListForMode = (mode: string): WordList | null => {
   switch (mode) {
     case 'WORDS':
-      return builtInLists.find(list => list.id === 'animals-easy') || null;
+      return builtInLists.find(list => list.id === 'animals-french') || null;
     case 'NUMBERS':
-      return builtInLists.find(list => list.id === 'numbers-1-20') || null;
-    case 'LETTERS':
-      return builtInLists.find(list => list.id === 'letters-a-z') || null;
+      return builtInLists.find(list => list.id === 'equations-french') || null;
     default:
       return null;
   }

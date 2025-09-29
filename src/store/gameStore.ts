@@ -223,7 +223,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
         target: item.key,
         entered: '',
         locked: false,
-        correct: false
+        correct: false,
+        emoji: item.emoji,
+        equation: item.equation
       };
     });
 

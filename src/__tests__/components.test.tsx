@@ -40,13 +40,13 @@ describe('ModeToggle Component', () => {
 
     render(
       <ModeToggle
-        currentMode="LETTERS"
+        currentMode="WORDS"
         onModeChange={mockOnModeChange}
       />
     );
 
-    const lettersButton = screen.getByRole('button', { name: /letters/i });
-    expect(lettersButton).toHaveAttribute('aria-pressed', 'true');
+    const wordsButton = screen.getByRole('button', { name: /mots/i });
+    expect(wordsButton).toHaveAttribute('aria-pressed', 'true');
   });
 
   test('disables buttons when disabled prop is true', () => {
@@ -172,7 +172,7 @@ describe('Box Component', () => {
       <Box
         {...defaultProps}
         target="A"
-        mode="LETTERS"
+        mode="WORDS"
         onUpdateBox={mockOnUpdateBox}
       />
     );

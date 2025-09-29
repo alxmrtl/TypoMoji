@@ -9,9 +9,8 @@ interface ModeToggleProps {
 }
 
 const modes: { value: GameMode; label: string; emoji: string }[] = [
-  { value: 'LETTERS', label: 'Letters', emoji: '🔤' },
-  { value: 'NUMBERS', label: 'Numbers', emoji: '🔢' },
-  { value: 'WORDS', label: 'Words', emoji: '📝' }
+  { value: 'WORDS', label: 'MOTS', emoji: '📝' },
+  { value: 'NUMBERS', label: 'NOMBRES', emoji: '🔢' }
 ];
 
 export const ModeToggle: React.FC<ModeToggleProps> = ({

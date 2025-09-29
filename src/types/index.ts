@@ -1,4 +1,4 @@
-export type GameMode = 'WORDS' | 'NUMBERS' | 'LETTERS';
+export type GameMode = 'WORDS' | 'NUMBERS';
 
 export interface AppConfig {
   mode: GameMode;
@@ -15,11 +15,20 @@ export interface AppConfig {
   subtleParentButtonPosition: 'top-right' | 'top-left';
 }
 
+export interface Equation {
+  left: string;
+  operator: string;
+  right: string;
+  result: string;
+  missing: 'left' | 'right' | 'result';
+}
+
 export interface WordListItem {
   id: string;
   key: string;
   emoji?: string;
   image?: string | null;
+  equation?: Equation;
 }
 
 export interface WordList {
@@ -36,6 +45,8 @@ export interface BoxState {
   entered: string;
   locked: boolean;
   correct: boolean;
+  emoji?: string;
+  equation?: Equation;
 }
 
 export interface RoundState {

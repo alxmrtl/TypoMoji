@@ -1,0 +1,22 @@
+{
+  "id": "colors-french",
+  "title": "Couleurs Françaises",
+  "type": "WORDS",
+  "items": [
+    { "id": "rouge", "key": "ROUGE", "emoji": "🔴" },
+    { "id": "bleu", "key": "BLEU", "emoji": "🔵" },
+    { "id": "vert", "key": "VERT", "emoji": "🟢" },
+    { "id": "jaune", "key": "JAUNE", "emoji": "🟡" },
+    { "id": "orange", "key": "ORANGE", "emoji": "🟠" },
+    { "id": "violet", "key": "VIOLET", "emoji": "🟣" },
+    { "id": "rose", "key": "ROSE", "emoji": "🩷" },
+    { "id": "noir", "key": "NOIR", "emoji": "⚫" },
+    { "id": "blanc", "key": "BLANC", "emoji": "⚪" },
+    { "id": "gris", "key": "GRIS", "emoji": "🩶" },
+    { "id": "marron", "key": "MARRON", "emoji": "🤎" },
+    { "id": "argent", "key": "ARGENT", "emoji": "🩶" },
+    { "id": "dore", "key": "DORE", "emoji": "🟨" }
+  ],
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "updatedAt": "2024-01-01T00:00:00.000Z"
+}
