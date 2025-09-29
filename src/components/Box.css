@@ -54,7 +54,7 @@
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.95);
   text-align: center;
-  font-size: var(--box-text-size);
+  font-size: clamp(0.9rem, 4vw, 2rem);
   font-weight: 700;
   font-family: var(--font-family);
   color: var(--color-text);
@@ -64,6 +64,33 @@
   text-transform: uppercase;
   padding: 12px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Dynamic sizing based on word length */
+.box__input[data-word-length="1"],
+.box__input[data-word-length="2"],
+.box__input[data-word-length="3"] {
+  font-size: clamp(1.4rem, 5vw, 2.2rem);
+}
+
+.box__input[data-word-length="4"],
+.box__input[data-word-length="5"],
+.box__input[data-word-length="6"] {
+  font-size: clamp(1.2rem, 4vw, 1.9rem);
+}
+
+.box__input[data-word-length="7"],
+.box__input[data-word-length="8"],
+.box__input[data-word-length="9"] {
+  font-size: clamp(1rem, 3.5vw, 1.6rem);
+}
+
+.box__input[data-word-length="10"],
+.box__input[data-word-length="11"],
+.box__input[data-word-length="12"] {
+  font-size: clamp(0.9rem, 3vw, 1.4rem);
 }
 
 .box--correct .box__input {
@@ -76,15 +103,33 @@
   box-shadow: 0 0 0 3px rgba(43, 108, 246, 0.2);
 }
 
-.box__input::placeholder {
-  color: rgba(0, 0, 0, 0.3);
+.box__hint-display {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(0.7rem, 2.5vw, 1rem);
   font-weight: 600;
-  font-size: 0.9em;
+  font-family: var(--font-family);
+  color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(43, 108, 246, 0.2);
   text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 1;
+  box-shadow: 0 1px 4px rgba(43, 108, 246, 0.1);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.box__input:focus::placeholder {
-  opacity: 0.5;
+.box--correct .box__hint-display {
+  opacity: 0;
 }
 
 .box--correct .box__input:focus {
@@ -346,15 +391,16 @@
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.95);
   text-align: center;
-  font-size: var(--font-size-lg);
+  font-size: clamp(1rem, 3vw, 1.5rem);
   font-weight: 700;
   font-family: var(--font-family);
   color: var(--color-text);
-  width: 45px;
+  width: clamp(35px, 8vw, 55px);
   min-width: 35px;
   padding: 4px 6px;
   outline: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .box__input--inline:focus {

@@ -4,6 +4,7 @@ import { initializeSeedData, getDefaultListForMode } from './lib/seedData';
 import { initializeAudio, audioManager } from './lib/audioManager';
 import { ModeToggle } from './components/ModeToggle';
 import { Board } from './components/Board';
+import { CategorySelector } from './components/CategorySelector';
 import { CelebrationModal } from './components/CelebrationModal';
 import { ParentZone } from './components/ParentZone';
 import { AchievementNotification, achievements } from './components/AchievementNotification';
@@ -198,18 +199,23 @@ function App() {
               onUpdateBox={updateBoxEntry}
               onRoundComplete={handleRoundComplete}
             />
-          ) : (
+          ) : selectedList ? (
             <div className="app-waiting">
               <p>🎯 Prépare-toi à taper !</p>
-              {selectedList && (
-                <button
-                  className="app-start-button"
-                  onClick={handleNewRound}
-                >
-                  Commencer la Partie
-                </button>
-              )}
+              <button
+                className="app-start-button"
+                onClick={handleNewRound}
+              >
+                Commencer la Partie
+              </button>
             </div>
+          ) : (
+            <CategorySelector
+              lists={lists}
+              mode={config.mode}
+              onSelectList={selectList}
+              selectedListId={selectedListId}
+            />
           )}
 
           {/* New round button */}

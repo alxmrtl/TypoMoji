@@ -1,6 +1,4 @@
 import type { WordList } from '../types';
-import animalsData from '../assets/lists/animals.json';
-import colorsData from '../assets/lists/colors.json';
 import numbersData from '../assets/lists/numbers.json';
 import animalsFrenchData from '../assets/lists/animals-french.json';
 import foodFrenchData from '../assets/lists/food-french.json';
@@ -9,10 +7,8 @@ import bodyFrenchData from '../assets/lists/body-french.json';
 import houseFrenchData from '../assets/lists/house-french.json';
 import equationsFrenchData from '../assets/lists/equations-french.json';
 
-// Built-in seed lists
+// Built-in seed lists - French only
 export const builtInLists: WordList[] = [
-  animalsData as WordList,
-  colorsData as WordList,
   numbersData as WordList,
   animalsFrenchData as WordList,
   foodFrenchData as WordList,

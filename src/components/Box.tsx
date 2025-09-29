@@ -205,6 +205,9 @@ export const Box: React.FC<BoxProps> = ({
             {emoji}
           </div>
         )}
+        <div className="box__hint-display">
+          {target}
+        </div>
         <input
           ref={inputRef}
           type="text"
@@ -212,7 +215,7 @@ export const Box: React.FC<BoxProps> = ({
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           onBlur={handleValidation}
-          placeholder={target}
+          placeholder=""
           disabled={locked}
           maxLength={getMaxLength()}
           pattern={getInputPattern()}
@@ -221,6 +224,7 @@ export const Box: React.FC<BoxProps> = ({
           autoCapitalize="characters"
           spellCheck={false}
           className="box__input"
+          data-word-length={target.length}
           aria-label={`Tape ${target}`}
         />
       </>
