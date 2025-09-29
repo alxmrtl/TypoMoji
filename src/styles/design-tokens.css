@@ -25,8 +25,8 @@
   --font-size-4xl: 2.25rem;  /* 36px */
 
   /* Box Typography - Responsive */
-  --box-hint-size: 1.25rem;    /* 20px mobile */
-  --box-text-size: 1.75rem;    /* 28px mobile */
+  --box-hint-size: 2rem;       /* 32px mobile */
+  --box-text-size: 2.5rem;     /* 40px mobile */
 
   /* Spacing - Mobile-first */
   --space-xs: 0.25rem;  /* 4px */
@@ -70,8 +70,8 @@
 @media (min-width: 768px) {
   :root {
     /* Increase font sizes for tablet */
-    --box-hint-size: 1.5rem;     /* 24px tablet */
-    --box-text-size: 2rem;       /* 32px tablet */
+    --box-hint-size: 2.5rem;     /* 40px tablet */
+    --box-text-size: 3rem;       /* 48px tablet */
 
     /* Larger spacing on tablet */
     --grid-gap: var(--space-lg);
@@ -84,8 +84,8 @@
 @media (min-width: 1024px) {
   :root {
     /* Largest font sizes for desktop */
-    --box-hint-size: 1.75rem;    /* 28px desktop */
-    --box-text-size: 2.25rem;    /* 36px desktop */
+    --box-hint-size: 3rem;       /* 48px desktop */
+    --box-text-size: 3.5rem;     /* 56px desktop */
 
     /* Spacious layout for desktop */
     --grid-gap: var(--space-xl);

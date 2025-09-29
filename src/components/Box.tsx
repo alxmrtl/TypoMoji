@@ -84,6 +84,11 @@ export const Box: React.FC<BoxProps> = ({
     }
 
     onUpdateBox(boxId, value);
+
+    // Auto-validate when target length is reached
+    if (value.length === target.length && value.length > 0) {
+      setTimeout(() => handleValidation(), 100);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -122,6 +127,11 @@ export const Box: React.FC<BoxProps> = ({
       // Render equation format: "1 + _ = 5"
       return (
         <div className="box__equation">
+          {emoji && (
+            <div className="box__emoji box__emoji--numbers" aria-hidden="true">
+              {emoji}
+            </div>
+          )}
           <div className="box__equation-display">
             <span className="box__equation-part">
               {equation.missing === 'left' ? (

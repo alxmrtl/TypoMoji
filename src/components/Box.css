@@ -280,11 +280,16 @@
   top: 15%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2.5rem;
+  font-size: 4rem;
   z-index: 1;
   pointer-events: none;
   opacity: 0.9;
   transition: opacity 0.2s ease;
+}
+
+.box__emoji--numbers {
+  top: 8%;
+  font-size: 3.5rem;
 }
 
 .box--words .box__input {
@@ -349,13 +354,13 @@
   border-bottom: 2px solid var(--color-primary);
   background: transparent;
   text-align: center;
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-2xl);
   font-weight: 700;
   font-family: var(--font-family);
   color: var(--color-text);
-  width: 40px;
-  min-width: 30px;
-  padding: 2px 4px;
+  width: 50px;
+  min-width: 40px;
+  padding: 4px 6px;
   outline: none;
   border-radius: 0;
 }
@@ -389,32 +394,52 @@
 /* Responsive adjustments for new elements */
 @media (min-width: 768px) {
   .box__emoji {
-    font-size: 3rem;
+    font-size: 5rem;
+  }
+
+  .box__emoji--numbers {
+    font-size: 4.5rem;
   }
 
   .box__equation-display {
-    font-size: var(--font-size-xl);
-  }
-
-  .box__input--equation {
-    width: 70px;
-    height: 45px;
-    font-size: var(--font-size-xl);
-  }
-}
-
-@media (min-width: 1024px) {
-  .box__emoji {
-    font-size: 3.5rem;
-  }
-
-  .box__equation-display {
-    font-size: 1.5rem;
+    font-size: var(--font-size-2xl);
   }
 
   .box__input--equation {
     width: 80px;
     height: 50px;
-    font-size: 1.5rem;
+    font-size: var(--font-size-2xl);
+  }
+
+  .box__input--inline {
+    font-size: var(--font-size-3xl);
+    width: 60px;
+    min-width: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .box__emoji {
+    font-size: 6rem;
+  }
+
+  .box__emoji--numbers {
+    font-size: 5.5rem;
+  }
+
+  .box__equation-display {
+    font-size: 2rem;
+  }
+
+  .box__input--equation {
+    width: 90px;
+    height: 60px;
+    font-size: 2rem;
+  }
+
+  .box__input--inline {
+    font-size: var(--font-size-4xl);
+    width: 70px;
+    min-width: 60px;
   }
 }
