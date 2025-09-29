@@ -212,7 +212,7 @@ export const Box: React.FC<BoxProps> = ({
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           onBlur={handleValidation}
-          placeholder=""
+          placeholder={target}
           disabled={locked}
           maxLength={getMaxLength()}
           pattern={getInputPattern()}
@@ -223,11 +223,6 @@ export const Box: React.FC<BoxProps> = ({
           className="box__input"
           aria-label={`Tape ${target}`}
         />
-        {!entered && !correct && (
-          <div className="box__hint">
-            {target}
-          </div>
-        )}
       </>
     );
   };
