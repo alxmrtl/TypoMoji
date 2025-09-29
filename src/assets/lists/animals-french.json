@@ -17,7 +17,7 @@
     { "id": "ours", "key": "OURS", "emoji": "🐻" },
     { "id": "lapin", "key": "LAPIN", "emoji": "🐰" },
     { "id": "souris", "key": "SOURIS", "emoji": "🐭" },
-    { "id": "elephant", "key": "ELEPHANT", "emoji": "🐘" },
+    { "id": "elephant", "key": "ÉLÉPHANT", "emoji": "🐘" },
     { "id": "girafe", "key": "GIRAFE", "emoji": "🦒" },
     { "id": "lion", "key": "LION", "emoji": "🦁" },
     { "id": "tigre", "key": "TIGRE", "emoji": "🐯" },

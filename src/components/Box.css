@@ -45,11 +45,11 @@
 
 .box__input {
   position: absolute;
-  top: 55%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80%;
-  height: 40%;
+  height: 35%;
   border: 2px solid var(--color-box-border);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.9);
@@ -275,13 +275,13 @@
   }
 }
 
-/* Emoji display - further reduced to prevent overlap */
+/* Emoji display - balanced size for visibility */
 .box__emoji {
   position: absolute;
   top: 4px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2.2rem;
+  font-size: 3rem;
   z-index: 1;
   pointer-events: none;
   opacity: 0.9;
@@ -290,7 +290,7 @@
 
 .box__emoji--numbers {
   top: 2px;
-  font-size: 1.8rem;
+  font-size: 2.5rem;
 }
 
 
@@ -395,11 +395,11 @@
 /* Responsive adjustments for new elements */
 @media (min-width: 768px) {
   .box__emoji {
-    font-size: 2.8rem;
+    font-size: 3.5rem;
   }
 
   .box__emoji--numbers {
-    font-size: 2.4rem;
+    font-size: 3rem;
   }
 
   .box__equation-display {
@@ -421,11 +421,11 @@
 
 @media (min-width: 1024px) {
   .box__emoji {
-    font-size: 3.2rem;
+    font-size: 4rem;
   }
 
   .box__emoji--numbers {
-    font-size: 2.8rem;
+    font-size: 3.5rem;
   }
 
   .box__equation-display {
